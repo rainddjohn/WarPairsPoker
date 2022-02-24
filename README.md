@@ -2,7 +2,7 @@
 
 2 Description: WarPairsPoker is a card game written in python and pygame library. ‘War’, ‘Pairs’ and ‘Poker’, represent each mode of the game you allowed to play in. ‘War’ is the name of a card game where each player flips and card and the highest card wins. ‘War’ translates in this game to just playing single cards. ‘Pairs’ is another mode of play in the game where you can only play pairs. ‘Poker’ is the last mode where you can play any poker hand. For each of these three modes, each player can only play in that specific mode, thus the name. 
 
-2.1 Installation: Latest Version of Python, latest version of Pygame 
+2.1 Installation: All you need to run this program is the latest version of python 3, and the latest version of pygame library. 
 
 3 Rules 
 
