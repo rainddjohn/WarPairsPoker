@@ -64,45 +64,25 @@ If you select a card, it will stick out to show that it is selected. Select all 
 
 ### 4.3 Options Menu 
 
-#### 4.31 Auto-Mull: 
+#### 4.31 Auto-Mull: This option being on means that the AI of the game will calculate the mulligan for both players. The AI is very smart, so if you are trying to learn how to mulligan see what the AI does and try to figure out why the AI mulligans the way that it does. 
 
-This option being on means that the AI of the game will calculate the mulligan for both players. The AI is very smart, so if you are trying to learn how to mulligan see what the AI does and try to figure out why the AI mulligans the way that it does. 
+#### 4.32 Comp: This option being on means that the AI will play for the top player’s hand. This will only work if you have no cards in the top player’s hand selected. If you have cards selected and click on the Comp Play button your selection will override the computer’s play. 
 
-#### 4.32 Comp: 
+#### 4.33 Replay game: This option will prompt you to replay the entire game you just played. Useful for testing out different ways of playing the game. 
 
-This option being on means that the AI will play for the top player’s hand. This will only work if you have no cards in the top player’s hand selected. If you have cards selected and click on the Comp Play button your selection will override the computer’s play. 
+#### 4.34 Undo: This option will undo the last action taken by a player. Can undo all the way back to the start of the game. 
 
-#### 4.33 Replay game: 
+#### 4.35 Back: This takes you back to the game. If you see this button, you are in the option menu screen and cannot affect the current game. 
 
-This option will prompt you to replay the entire game you just played. Useful for testing out different ways of playing the game. 
+#### 4.36 Show This: This option shows what was played this hand. Useful for players planning their moves. 
 
-#### 4.34 Undo:
+#### 4.37 Show Last: This option shows what was played last hand. Again, useful for seeing what was played. 
 
-This option will undo the last action taken by a player. Can undo all the way back to the start of the game. 
+#### 4.38 Alternate Reveal: This option being on means you only see the hand of whoever’s turn it is. This makes you able to play both players without the bias of seeing what is in the other one’s hand. 
 
-#### 4.35 Back: 
+#### 4.39 Rules: Displays a quick reference of the rules in case they are forgotten. 
 
-This takes you back to the game. If you see this button, you are in the option menu screen and cannot affect the current game. 
-
-#### 4.36 Show This: 
-
-This option shows what was played this hand. Useful for players planning their moves. 
-
-#### 4.37 Show Last: 
-
-This option shows what was played last hand. Again, useful for seeing what was played. 
-
-#### 4.38 Alternate Reveal: 
-
-This option being on means you only see the hand of whoever’s turn it is. This makes you able to play both players without the bias of seeing what is in the other one’s hand. 
-
-#### 4.39 Rules: 
-
-Displays a quick reference of the rules in case they are forgotten. 
-
-#### 4.40 Concede: 
-
-Concedes the game for whoever’s turn it is. Useful for going onto the next game if the current game is over. 
+#### 4.40 Concede: Concedes the game for whoever’s turn it is. Useful for going onto the next game if the current game is over. 
 
 ## 5 Technology Overview 
 
@@ -121,9 +101,9 @@ Pygame is a library used to display a game. Each button has click area of x and 
 
 ## 6 How the AI works in steps 
 
-#### 6.1 
+#### 6.1 Mulligan:
 
-Mulligan: At the start of the game, you are dealt 16 cards and must get rid of 3 of them. For the mulligan section, only one straight or flush is viable per hand. King, aces and twos, may not be used to make poker hands for your mulligan. Any poker hand that breaks up three or more pairs also cannot be used. Using these rules, the AI will look for viable flushes and viable straights. Any poker hand found will be added to a list of viable poker hands, along with two other numbers. The first number, is the number of outliers. Outliers are cards that do not match any other card in the hand, but also, are not in the poker hand. The second number is the total value of the outliers added up minus the three lowest, known as the “strength of outliers”. The two numbers represent tiebreakers, with outliers being the main tiebreaker and the strength of outliers being the secondary tiebreaker. After all straights and flushes are calculated, the hand with the best tiebreakers is the hand that is chosen. There are also cases where you do not have three cards to mulligan, because all of the cards are either in your poker hand, match other cards in your hand, or they are 2’s, aces, or kings. For these instances, we use a function, which calculates what the AI will do based on each individual hand. This includes breaking up pairs, using the lowest card in a three of a kind, using all 3 cards of a three of a kind, or just choosing a 2, ace or king. Once we find our three cards, the cards get removed from the hand and then the mulligan is complete. 
+At the start of the game, you are dealt 16 cards and must get rid of 3 of them. For the mulligan section, only one straight or flush is viable per hand. King, aces and twos, may not be used to make poker hands for your mulligan. Any poker hand that breaks up three or more pairs also cannot be used. Using these rules, the AI will look for viable flushes and viable straights. Any poker hand found will be added to a list of viable poker hands, along with two other numbers. The first number, is the number of outliers. Outliers are cards that do not match any other card in the hand, but also, are not in the poker hand. The second number is the total value of the outliers added up minus the three lowest, known as the “strength of outliers”. The two numbers represent tiebreakers, with outliers being the main tiebreaker and the strength of outliers being the secondary tiebreaker. After all straights and flushes are calculated, the hand with the best tiebreakers is the hand that is chosen. There are also cases where you do not have three cards to mulligan, because all of the cards are either in your poker hand, match other cards in your hand, or they are 2’s, aces, or kings. For these instances, we use a function, which calculates what the AI will do based on each individual hand. This includes breaking up pairs, using the lowest card in a three of a kind, using all 3 cards of a three of a kind, or just choosing a 2, ace or king. Once we find our three cards, the cards get removed from the hand and then the mulligan is complete. 
 
 
 #### 6.2 Segment: 
