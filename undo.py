@@ -151,7 +151,7 @@ def undo(log, main, pile, player1, player2, showthis, showlast, p1redraw, p2redr
                      backupmain,deck,play,play2,used,background_color,altreveal, screen,lastmouse1, AI, concede)
         return main, gamemode, log,pile, deck,fplay,showthis,showlast,used,p1redraw,p2redraw,player1,player2
     if log[-1]==7:
-        if type(log[-4])==str:player2.append(i)
+        if type(log[-4])==str:player2.append(log[-4])
         else:
             for i in log[-4]:
                 player2.append(i)
