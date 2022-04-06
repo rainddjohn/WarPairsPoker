@@ -66,7 +66,7 @@ def undo(screen,game):
             if game.main[1]==1:
                 game.gamemode=list([0,0,0])
             else:
-                gamemode=list(game.log[-2])
+                game.gamemode=list(game.log[-2])
             game=basic.seewhogoesfirst(game)
             game=display.redrawgamewindow(screen,game)
             return game
