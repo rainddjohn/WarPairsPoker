@@ -60,21 +60,20 @@ def AIflushstraight(game):
     #functions plays straights and flushes if we have them
     # straight first
     if not game.AIinfo[6] and game.finalseg[5] and game.gamemode[0] == 3 or not game.AIinfo[6] and game.finalseg[5] and game.gamemode[0] == 0:
+        print('do we have doublestraight, finalseg[5] is', game.finalseg[5])
         if game.gamemode[2] < 3:
             game.AIinfo[6] = list(game.finalseg[5][0])
             game.AIinfo[5] = 1
         if game.gamemode[2] == 3:
-            for i in game.finalseg[5]:
-                str = i[-1].replace('d', '.1').replace('c', '.2').replace('h', '.3').replace('s', '.4')
-                if game.gamemode[1] < float(str):
-                    if round(game.gamemode[1]) != 2 and round(float(str)) != 14:
-                        game.AIinfo[6] = list(i)
-                        game.AIinfo[5] = 1
-                else:
-                    if round(float(str)) == 2 and round(game.gamemode[1]) == 14:
-                        game.AIinfo[6] = list(i)
-                        game.AIinfo[5] = 1
-
+            str = game.finalseg[5][-1].replace('d', '.1').replace('c', '.2').replace('h', '.3').replace('s', '.4')
+            if game.gamemode[1] < float(str):
+                if round(game.gamemode[1]) != 2 and round(float(str)) != 14:
+                    game.AIinfo[6] = list(game.finalseg[5])
+                    game.AIinfo[5] = 1
+            else:
+                if round(float(str)) == 2 and round(game.gamemode[1]) == 14:
+                    game.AIinfo[6] = list(game.finalseg[5]) #works as game.finalseg[5][0] for some reason, not sure about double straights yet, will error if theres 2 I guess
+                    game.AIinfo[5] = 1
     if len(game.AIinfo[6])!=5 and game.AIinfo[6]:
         game.AIinfo[6]=game.finalseg[5]
     # flush
@@ -83,16 +82,17 @@ def AIflushstraight(game):
             game.AIinfo[6] = list(game.finalseg[6])
             game.AIinfo[5] = 2
         if game.gamemode[2] == 4:
-            for i in game.finalseg[6]:
-                str = i[-1].replace('d', '.1').replace('c', '.2').replace('h', '.3').replace('s', '.4')
-                if game.gamemode[1] < float(str):
-                    if round(game.gamemode[1]) != 2 and round(float(str)) != 14:
-                        game.AIinfo[6] = list(i)
-                        game.AIinfo[5] = 2
-                else:
-                    if round(float(str)) == 2 and round(game.gamemode[1]) == 14:
-                        game.AIinfo[6] = list(i)
-                        game.AIinfo[5] = 2
+            print('finalseg[6] is',game.finalseg[6])
+            str = game.finalseg[6][-1][-1].replace('d', '.1').replace('c', '.2').replace('h', '.3').replace('s', '.4')
+            print('str is',str)
+            if game.gamemode[1] < float(str):
+                if round(game.gamemode[1]) != 2 and round(float(str)) != 14:
+                    game.AIinfo[6] = list(game.finalseg[6])
+                    game.AIinfo[5] = 2
+            else:
+                if round(float(str)) == 2 and round(game.gamemode[1]) == 14:
+                    game.AIinfo[6] = list(game.finalseg[6])
+                    game.AIinfo[5] = 2
     return game
 
 def AIFullhHouseQuadsTwoPair(game):
