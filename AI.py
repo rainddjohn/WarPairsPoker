@@ -248,7 +248,7 @@ def AIFullhHouseQuadsTwoPair(game):
                         break
                     counter += 1
             counter = 0
-    print('1AIinfo[5/6] is', game.AIinfo[5],game.AIinfo[6])
+
     #normal pairs
     if game.gamemode[0] == 2 or game.gamemode[0] == 0:
         if not game.AIinfo[6] or not game.AIinfo[6] and not game.AIinfo[0] and game.gamemode[0]==0:
