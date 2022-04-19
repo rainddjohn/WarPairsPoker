@@ -101,8 +101,9 @@ def undo(screen,game):
             game.player1.remove(game.log[-4])
             game.deck.insert(0,game.log[-4])
             game.player1 = basic.sort(game.player1)
-            game.log = game.log[:-4]
-            game.gamemode=list(game.log[-2])
+            game.gamemode = list(game.log[-2])
+            game.log = game.log[:-4] #gamemode was after this
+
             game=basic.seewhogoesfirst(game)
             game=display.redrawgamewindow(screen,game)
             return game
@@ -114,8 +115,9 @@ def undo(screen,game):
             game.player2.remove(game.log[-4])
             game.deck.insert(0,game.log[-4])
             game.player2 = basic.sort(game.player2)
+            game.gamemode = list(game.log[-2])
             game.log = game.log[:-4]
-            game.gamemode=list(game.log[-2])
+
             game=basic.seewhogoesfirst(game)
             game=display.redrawgamewindow(screen,game)
             return game
@@ -220,7 +222,7 @@ def undo(screen,game):
         game=display.redrawgamewindow(screen,game)
 
         if game.log[-1]==5:
-            game= undo(game,screen)
+            game= undo(screen,game)
         return game
 
     #AI play action
@@ -272,7 +274,7 @@ def undo(screen,game):
         
 def updatefplay(game):
     x = 1
-    #updates fplay when the undo button is used, needs to be fixed
+    #updates fplay when the undo button is used
     if game.main[1]==1:
         game.fplay=[]
         return game
