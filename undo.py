@@ -4,6 +4,7 @@ def undo(screen,game):
     x=0
     #every event is added here as [cards used,main,gamemode,type of action]; types of action: -1,-2 mulligans, 1 play, 2 draw, 3 redraw, 4 is pass turn, 5 is pile, 6 is change of turn
     #AI 7 play 8 AI draw 9 AI pile (currently the AI does not draw from the pile)
+
     if len(game.log)==0:
         game.main=list(game.backupmain)
         game=display.redrawgamewindow(screen,game)
@@ -59,16 +60,21 @@ def undo(screen,game):
                 if game.log[-4][x] in game.showthis:
                     game.showthis.remove(game.log[-4][x])
                 x+=1
+            game.log = game.log[:-4]
             game.main=game.log[-3]
             game=updatefplay(game)
             game.player1 = basic.sort(game.player1)
-            game.log = game.log[:-4]
+
             if game.main[1]==1:
                 game.gamemode=list([0,0,0])
             else:
                 game.gamemode=list(game.log[-2])
             game=basic.seewhogoesfirst(game)
             game=display.redrawgamewindow(screen,game)
+
+            #this stops a bug where the AI inputs the play to log, but then the log is incorrect, so the second undo resets it
+            if game.log[-1] == 7:
+                game = undo(screen, game)
             return game
 
         #player2
@@ -90,7 +96,7 @@ def undo(screen,game):
                 game.gamemode=list(game.log[-2])
             game=basic.seewhogoesfirst(game)
             game=display.redrawgamewindow(screen,game)
-            return game
+        return game
 
     #handles draw action
     if game.log[-1]==2:
@@ -102,7 +108,7 @@ def undo(screen,game):
             game.deck.insert(0,game.log[-4])
             game.player1 = basic.sort(game.player1)
             game.gamemode = list(game.log[-2])
-            game.log = game.log[:-4] #gamemode was after this
+            game.log = game.log[:-4]
 
             game=basic.seewhogoesfirst(game)
             game=display.redrawgamewindow(screen,game)
@@ -279,7 +285,7 @@ def updatefplay(game):
         game.fplay=[]
         return game
     while len(game.log)>1+(x*4):   ### not sure about this one
-        if game.log[-1+(x*-4)]==1:
+        if game.log[-1+(x*-4)]==1 or game.log[-1+(x*-4)]==7:
             if game.log[-3][1]==2:
                 game.fplay=list(game.log[-4+(x*-4)])
                 return game
