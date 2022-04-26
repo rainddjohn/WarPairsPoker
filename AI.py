@@ -635,6 +635,7 @@ def AIdraw(game):
         if len(game.AIinfo[6])!=0:
             for i in game.AIinfo[6]:
                 game.player2.remove(i)
+                game.used.append(i)
 
         #hotfix for making straight flush work
         if game.gamemode[2]==4:
