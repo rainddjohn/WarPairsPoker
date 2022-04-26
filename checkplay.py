@@ -314,7 +314,7 @@ def fplayadd(play0,backup,game):
     return game
 
 def cleanup(game):
-    #this function takes most of the actions needed to make the game run properly ie removing/adding cards from lists
+    #this function takes most of the actions needFed to make the game run properly ie removing/adding cards from lists
     game.lastmouse1=[0,0]
     x=0
     #if player 1's play remove player 1's played cards, else do player 2
