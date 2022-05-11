@@ -1,9 +1,8 @@
 # 1 Title: WarPairsPoker 
 by John Sileo 
 
-'''
 https://www.loom.com/share/688a963b126c49bca07454b4980bcd94
-'''
+
 ## 2 Description: 
 
 WarPairsPoker is a card game written in python and pygame library. ‘War’, ‘Pairs’ and ‘Poker’, represent each mode of the game you allowed to play in. ‘War’ is the name of a card game where each player flips and card and the highest card wins. ‘War’ translates in this game to just playing single cards. ‘Pairs’ is another mode of play in the game where you can only play pairs. ‘Poker’ is the last mode where you can play any poker hand. For each of these three modes, each player can only play in that specific mode, thus the name. 
