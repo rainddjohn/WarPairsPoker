@@ -418,7 +418,9 @@ def decksize(game):
 def testbutton(mouse,game):
     #used to test the contents of lists
     if 70 <= mouse[0] <= 200 and 323 <= mouse[1] <= 383:
-       print('gamemode =',game.gamemode);print('main is',game.main)
+        print('main/gamemode =',game.main,game.gamemode)
+        print('log is',game.log)
+        print('used is',game.used)
 
 
 
@@ -433,6 +435,14 @@ def optionbuttons(mouse,screen,game):
     if game.main==[-3,-3] and 10 <= mouse[0] <= 100 and 323 <= mouse[1] <= 383:
         game.main=list(game.backupmain)
         game=display.redrawgamewindow(screen,game)
+
+    if game.main == [-3, -3] and 10 <= mouse[0] <= 90 and 18 <= mouse[1] <= 78:   #showtop
+        print('showtop=',game.showtop)
+        if game.showtop==True:
+            game.showtop=False
+
+        else:
+            game.showtop=True
 
     if game.main == [-3, -3] and 10 <= mouse[0] <= 90 and 384 <= mouse[1] <= 444:   #showthisoff
         if game.optionslist[0]==0:

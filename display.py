@@ -83,7 +83,7 @@ def displayhand2(screen,game):
     while y < len(game.player2):
         card=game.player2[y]
         selectionadjustment=0
-        if game.altreveal==True and game.main[0] == 1 or game.AI==True and game.main!=[-2,0]:
+        if game.altreveal==True and game.main[0] == 1 and game.showtop==False or game.AI==True and game.main!=[-2,0] and game.showtop==False:
             x = pygame.image.load('blueback.png')
         else:
             x=pygame.image.load(f'{card}.png')
@@ -110,7 +110,7 @@ def displayfplay(screen,game):
 
 def displaypile(screen,game):
     if game.main[0] <1:return
-    x = 0;y = 0   ###redo
+    y = 0   ###redo
     #shows side drawable pile
     while y < len(game.pile):
         card = game.pile[y]
@@ -146,8 +146,11 @@ def loadmainbuttons(screen,game):
     if game.main[1]==1:
         a = pygame.image.load('play.png')
         screen.blit(a, (120, 323))
-        a = pygame.image.load('passturn.png')
-        screen.blit(a, (120, 280))
+        if game.main==[2,1] and game.AI:
+            pass
+        else:
+            a = pygame.image.load('passturn.png')
+            screen.blit(a, (120, 280))
 
     if game.main[1]==2:
         a = pygame.image.load('play.png')
@@ -191,6 +194,13 @@ def optionwindow(screen,game):
     a=pygame.image.load('undo.png')
     screen.blit(a, (10, 262))
 
+    if game.showtop==True:
+        a = pygame.image.load('showtopon.png')
+        screen.blit(a, (10, 18))
+
+    else:
+        a = pygame.image.load('showtopoff.png')
+        screen.blit(a, (10, 18))
 
     if game.optionslist[0]==0:
         a=pygame.image.load('showthisoff.png')
@@ -215,7 +225,7 @@ def optionwindow(screen,game):
     else:
         a = pygame.image.load('altrevealon.png')
         screen.blit(a, (10, 506))
-    a =pygame.image.load('rules.png')    ##is this correct?
+    a =pygame.image.load('rules.png')
     screen.blit(a, (10, 567))
 
     if game.optionslist[3]==1:

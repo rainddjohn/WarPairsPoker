@@ -50,6 +50,7 @@ class gameinfo():
     AIinfo = [False, False, False, False, False, 0, [], False]
     background_color = (84, 119, 44)
     hand = []
+    showtop= True
 
 game=gameinfo()
 game=basic.startgame(screen,game)

@@ -595,7 +595,8 @@ def AIdraw(game):
     #less then 5 cards draw 1
     #drawing a 2 good if #A+#2 < 3
     if game.AIinfo[6]:
-        game.fplay=list(game.AIinfo[6])
+        game.fplay=list(game.AIinfo[6])  #after this is old spot for log add
+        # add to log for undo
         game.log.append(list(game.AIinfo[6]))
         game.log.append(list(game.main))
         game.log.append(list(game.gamemode))
@@ -643,6 +644,8 @@ def AIdraw(game):
                     int(game.AIinfo[6][2][:-1])+1==int(game.AIinfo[6][3][:-1]) and int(game.AIinfo[6][3][:-1])+1==int(game.AIinfo[6][4][:-1]):
                 game.gamemode[2]=7
         game.AIinfo[5] = 0
+
+
         return game
     game.showlast=[]
     game.showlast=list(game.showthis)

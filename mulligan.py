@@ -289,8 +289,8 @@ def finalflush(game):
     a=0
 
     #check if we have a viable straightflush
-    while x != (len(possflush)):  ### stfl test, pretty sure this is correct, y should only be 0 if its 5 card stfl and max 1 if it's 6 cards, needs to be redone
-        while y <= len(possflush[x]) - 4: #not 100% about this sign
+    while x != (len(possflush)):  ### stfl test, pretty sure this is correct, y should only be 0 if its 5 card stfl and max 1 if it's 6 cards
+        while y <= len(possflush[x]) - 4:
             if possflush[x][y]+z in possflush[x] and z>4:
                 z+=1
                 continue
