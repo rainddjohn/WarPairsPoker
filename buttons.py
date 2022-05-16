@@ -419,7 +419,7 @@ def testbutton(mouse,game):
     #used to test the contents of lists
     if 70 <= mouse[0] <= 200 and 323 <= mouse[1] <= 383:
         print('main/gamemode =',game.main,game.gamemode)
-        print('log is',game.log)
+        #print('log is',game.log)
         print('used is',game.used)
 
 
