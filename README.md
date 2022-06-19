@@ -14,7 +14,7 @@ What you need to run this program is the latest version of python 3, the latest 
 
 Command to download pygame:
 
-python3 -m pip install -U pygame --user
+<code>python3 -m pip install -U pygame --user</code>
 
 The files 'WarPairsPoker_Main, basic, checkplay, display, buttons, undo, mulligan, segment and AI and WarPairsPoker Images.zip' need to be in the same folder and WarPairsPoker_Main is the file you run to start the program.
 
