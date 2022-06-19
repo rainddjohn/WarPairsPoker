@@ -10,7 +10,13 @@ WarPairsPoker is a card game written in python and pygame library. ‘War’, �
 
 #### 2.1 Installation: 
 
-What you need to run this program is the latest version of python 3, the latest version of the pygame library. The files 'WarPairsPoker_Main, basic, checkplay, display, buttons, undo, mulligan, segment and AI and WarPairsPoker Images.zip' need to be in the same folder and WarPairsPoker_Main is the file you run to start the program.
+What you need to run this program is the latest version of python 3, the latest version of the pygame library.
+
+Command to download pygame:
+
+python3 -m pip install -U pygame --user
+
+The files 'WarPairsPoker_Main, basic, checkplay, display, buttons, undo, mulligan, segment and AI and WarPairsPoker Images.zip' need to be in the same folder and WarPairsPoker_Main is the file you run to start the program.
 
 ## 3 Rules 
 
